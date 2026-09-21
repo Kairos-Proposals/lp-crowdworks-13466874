@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INUNEKOLOGY 広告LP制作ご提案 | Kairos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #16233F;
+    --navy-deep: #0B1526;
+    --white: #FFFFFF;
+    --mist: #F4F6F8;
+    --gold: #BE9E5C;
+    --gray: #6B7280;
+    --line: #E1E5EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP', sans-serif;
+    color:var(--navy-deep);
+    background:var(--white);
+    line-height:1.9;
+    font-weight:400;
+    letter-spacing:0.02em;
+  }
+  h1,h2,h3,h4{
+    font-family:'Zen Old Mincho', serif;
+    font-weight:600;
+    letter-spacing:0.04em;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-family:'Zen Old Mincho', serif;
+    font-size:0.8rem;
+    letter-spacing:0.28em;
+    color:var(--gold);
+    margin-bottom:18px;
+    display:inline-block;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, #1E3157 100%);
+    color:var(--white);
+    padding:120px 0 140px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-180px; right:-160px;
+    width:520px; height:520px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-220px; left:-140px;
+    width:420px; height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(190,158,92,0.18), transparent 70%);
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .hero-tag{
+    display:inline-block;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    border:1px solid rgba(255,255,255,0.35);
+    padding:6px 16px;
+    border-radius:999px;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(2rem, 5vw, 3.4rem);
+    line-height:1.55;
+    margin-bottom:28px;
+    color:var(--white);
+  }
+  .hero h1 .accent{color:var(--gold);}
+  .hero p.lead{
+    max-width:560px;
+    font-size:1rem;
+    color:rgba(255,255,255,0.78);
+    margin-bottom:44px;
+  }
+  .hero-meta{
+    display:flex; gap:32px; flex-wrap:wrap;
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.6);
+  }
+  .hero-meta span{display:block; color:var(--gold); font-family:'Zen Old Mincho',serif; font-size:0.95rem; margin-bottom:4px;}
+
+  /* diagram teaser in hero */
+  .venn-mini{
+    position:absolute;
+    right:6%;
+    bottom:-10%;
+    width:280px; height:280px;
+    display:none;
+  }
+  @media(min-width:900px){ .venn-mini{display:block;} }
+  .venn-mini .c{
+    position:absolute;
+    width:150px;height:150px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.4);
+    background:rgba(255,255,255,0.03);
+  }
+  .venn-mini .c1{top:0;left:60px;}
+  .venn-mini .c2{top:80px;left:0;}
+  .venn-mini .c3{top:80px;left:120px;}
+
+  /* ---------- UNDERSTANDING ---------- */
+  .understand{background:var(--mist);}
+  .understand-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media(max-width:860px){ .understand-grid{grid-template-columns:1fr;} }
+  .understand h2{
+    font-size:clamp(1.5rem,3vw,2.1rem);
+    color:var(--navy);
+    margin-bottom:26px;
+    line-height:1.7;
+  }
+  .understand p{color:var(--gray); margin-bottom:18px; font-size:0.95rem;}
+  .quote-box{
+    background:var(--white);
+    border-left:3px solid var(--gold);
+    padding:22px 26px;
+    font-size:0.92rem;
+    color:var(--navy-deep);
+    margin-top:26px;
+  }
+
+  /* venn diagram detail */
+  .venn-detail{position:relative; width:100%; max-width:380px; margin:0 auto; aspect-ratio:1/1;}
+  .venn-detail .circle{
+    position:absolute;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-size:0.78rem;
+    color:var(--white);
+    padding:10px;
+    line-height:1.5;
+  }
+  .venn-detail .v1{
+    width:62%; height:62%;
+    top:0; left:8%;
+    background:rgba(22,35,63,0.86);
+  }
+  .venn-detail .v2{
+    width:62%; height:62%;
+    top:0; right:8%;
+    background:rgba(190,158,92,0.85);
+    color:var(--navy-deep);
+  }
+  .venn-detail .v3{
+    width:62%; height:62%;
+    bottom:0; left:19%;
+    background:rgba(22,35,63,0.55);
+  }
+  .venn-detail .center-label{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--white);
+    border-radius:50%;
+    width:34%; height:34%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-family:'Zen Old Mincho',serif;
+    font-size:0.85rem;
+    color:var(--navy);
+    box-shadow:0 6px 20px rgba(22,35,63,0.15);
+    z-index:5;
+    line-height:1.5;
+  }
+
+  /* ---------- VALUE ---------- */
+  .value{background:var(--white);}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 60px;}
+  .section-head h2{font-size:clamp(1.5rem,3vw,2.1rem); color:var(--navy);}
+  .section-head p{color:var(--gray); margin-top:14px; font-size:0.92rem;}
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media(max-width:900px){ .cards{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .cards{grid-template-columns:1fr;} }
+  .card{
+    border:1px solid var(--line);
+    padding:38px 28px;
+    position:relative;
+    background:var(--white);
+    transition:.25s;
+  }
+  .card:hover{ box-shadow:0 16px 40px rgba(22,35,63,0.08); border-color:transparent; transform:translateY(-4px); }
+  .card .num{
+    font-family:'Zen Old Mincho',serif;
+    font-size:0.8rem;
+    color:var(--gold);
+    letter-spacing:0.2em;
+    margin-bottom:16px;
+    display:block;
+  }
+  .card h3{font-size:1.08rem; color:var(--navy); margin-bottom:14px;}
+  .card p{font-size:0.86rem; color:var(--gray);}
+
+  /* ---------- FLOW ---------- */
+  .flow{background:var(--navy-deep); color:var(--white);}
+  .flow .section-head h2{color:var(--white);}
+  .flow .section-head p{color:rgba(255,255,255,0.6);}
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+    position:relative;
+  }
+  @media(max-width:900px){ .timeline{grid-template-columns:1fr; gap:0;} }
+  .step{
+    position:relative;
+    padding:28px 18px 10px;
+    border-top:2px solid rgba(255,255,255,0.15);
+  }
+  @media(max-width:900px){
+    .step{border-top:none; border-left:2px solid rgba(255,255,255,0.15); padding:18px 0 28px 26px; margin-left:10px;}
+  }
+  .step .dot{
+    position:absolute;
+    top:-2px; left:0;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--gold);
+    transform:translate(-4px,-50%);
+  }
+  @media(max-width:900px){ .step .dot{ top:0; left:-2px; transform:translate(-4px,0);} }
+  .step .day{font-size:0.72rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:8px;}
+  .step h4{font-size:0.98rem; margin-bottom:8px; font-family:'Zen Old Mincho',serif;}
+  .step p{font-size:0.8rem; color:rgba(255,255,255,0.62);}
+
+  /* ---------- CLOSING ---------- */
+  .closing{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--white);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;
+    top:-100px; left:50%;
+    transform:translateX(-50%);
+    width:600px; height:600px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .closing-inner{position:relative; z-index:2;}
+  .closing h2{font-size:clamp(1.5rem,3.6vw,2.3rem); margin-bottom:20px;}
+  .closing p{color:rgba(255,255,255,0.7); max-width:520px; margin:0 auto 40px; font-size:0.94rem;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:16px 46px;
+    font-family:'Zen Old Mincho',serif;
+    font-size:0.98rem;
+    letter-spacing:0.1em;
+    border-radius:2px;
+    transition:.25s;
+  }
+  .cta-btn:hover{background:var(--white);}
+  .closing .foot-note{
+    margin-top:50px;
+    font-size:0.76rem;
+    color:rgba(255,255,255,0.4);
+    letter-spacing:0.08em;
+  }
+
+  .divider-label{
+    text-align:center;
+    font-family:'Zen Old Mincho',serif;
+    letter-spacing:0.3em;
+    font-size:0.72rem;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="venn-mini">
+    <div class="c c1"></div><div class="c c2"></div><div class="c c3"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <span class="hero-tag">PROPOSAL FROM KAIROS</span>
+    <h1>ひとつの悩みに、<br>ひとつの答えでは足りない。<br><span class="accent">その理由を、一目で伝えるLP。</span></h1>
+    <p class="lead">
+      INUNEKOLOGYの「複数の視点からその子に必要な栄養ケアを考える」という思想を、
+      広告流入者が3秒で理解できるデザインに変換します。
+      Kairosより、本LP制作のご提案です。
+    </p>
+    <div class="hero-meta">
+      <div><span>NAVY × WHITE</span>上質・清潔感・専門性</div>
+      <div><span>1〜2週間</span>ご希望納期に対応</div>
+      <div><span>診断3分</span>への自然な導線設計</div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDERSTANDING -->
+<section class="understand">
+  <div class="wrap understand-grid">
+    <div>
+      <span class="eyebrow">UNDERSTANDING THE BRIEF</span>
+      <h2>これは「6商品の紹介LP」ではなく、<br>「思考のプロセス」を見せるLPだと理解しています。</h2>
+      <p>
+        INUNEKOLOGYの本質的な価値は、栄養ケアの種類数ではなく、犬種・猫種・年齢・生活習慣・気になることという
+        複数の要素を掛け合わせ、その子に本当に合う3種類を導き出す「診断の視点」にあります。
+      </p>
+      <p>
+        だからこそ、単に商品を並べるのではなく、「なぜ複数の視点が必要なのか」「なぜ最終的に3種類なのか」を、
+        テキストだけでなく構造として見せることが、無料診断への納得感ある導線を作る鍵になると考えています。
+      </p>
+      <div class="quote-box">
+        「かわいいペットブランド」ではなく「専門性のあるウェルネスブランド」。<br>
+        ネイビー×白という余白のあるトーンの中に、この診断ロジックの説得力を組み込みます。
+      </div>
+    </div>
+    <div>
+      <div class="divider-label">WHY THREE — 図解イメージ例</div>
+      <div class="venn-detail">
+        <div class="circle v1">犬種・猫種<br>年齢</div>
+        <div class="circle v2">生活習慣</div>
+        <div class="circle v3">気になること</div>
+        <div class="center-label">その子に合う<br>3種類</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="value">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">WHAT KAIROS PROVIDES</span>
+      <h2>Kairosがご提供できること</h2>
+      <p>構成・コピーは支給いただいたものをベースに、デザインとロジックの見せ方で「診断してみたい」を引き出します。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>ブランド世界観の再構築</h3>
+        <p>公式サイトのネイビー×白のトーンを踏襲しつつ、広告LPとして必要な視認性とCTA誘導力を両立したデザインに調整します。</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>「なぜ3種類か」の図解設計</h3>
+        <p>複数視点→絞り込み→3種類という診断ロジックを、ベン図・フロー図など直感的な図解に変換し、文章の説得力を補強します。</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>レスポンシブ実装</h3>
+        <p>Meta広告からの流入はスマートフォンが主体になることを前提に、モバイル優先でレイアウト・タップ導線を設計します。</p>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3>診断ページへの導線最適化</h3>
+        <p>CTAボタンの配置・文言・視覚的な優先度を調整し、既存W2診断ページへの遷移率を高める設計にします。</p>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3>公開可能な形式での納品</h3>
+        <p>HTML／CSSでコーディングし、公開・運用しやすい形式でお渡しします。既存素材・新規素材の選定もご一緒に進めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">HOW WE WORK</span>
+      <h2>進め方・スケジュールイメージ</h2>
+      <p>ご希望の「1〜2週間」納期を前提とした標準フローです。指示書・素材が整理済みのため、着手から公開まで無駄なくすすめます。</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <span class="dot"></span>
+        <div class="day">DAY 1-2</div>
+        <h4>キックオフ</h4>
+        <p>指示書・掲載テキスト・素材URL・ロゴを確認し、構成意図と診断ロジックの伝え方を整理します。</p>
+      </div>
+      <div class="step">
+        <span class="dot"></span>
+        <div class="day">DAY 3-5</div>
+        <h4>デザイン設計</h4>
+        <p>トンマナ・図解案を含むデザインカンプを作成。「なぜ3種類か」セクションを重点的にご確認いただきます。</p>
+      </div>
+      <div class="step">
+        <span class="dot"></span>
+        <div class="day">DAY 6-9</div>
+        <h4>コーディング</h4>
+        <p>HTML／CSSで実装。PC／スマホの両方でレイアウト・CTA動作を確認しながら組み上げます。</p>
+      </div>
+      <div class="step">
+        <span class="dot"></span>
+        <div class="day">DAY 10-11</div>
+        <h4>確認・修正</h4>
+        <p>実機・実ブラウザでのご確認をいただき、テキスト微調整・レイアウト調整を反映します。</p>
+      </div>
+      <div class="step">
+        <span class="dot"></span>
+        <div class="day">DAY 12-14</div>
+        <h4>納品</h4>
+        <p>公開可能な形式でデータを納品。CTAリンクの遷移先も最終確認のうえお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap closing-inner">
+    <span class="eyebrow">NEXT STEP</span>
+    <h2>「見た目」ではなく、「伝わる構造」で<br>診断への一歩を後押しします。</h2>
+    <p>
+      自己紹介・実績・お見積り・お対応可能な修正回数など、応募条件に沿った情報を
+      あわせてご提出いたします。まずはお気軽にご連絡ください。
+    </p>
+    <a href="#" class="cta-btn">Kairosに相談する</a>
+    <div class="foot-note">KAIROS — Web制作・システム開発チーム</div>
+  </div>
+</section>
+
+</body>
+</html>
